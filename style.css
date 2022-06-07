@@ -1,0 +1,21 @@
+.tet-grid {
+    width: 200px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    border-width: medium;
+    border-style: double;
+    border-color: aquamarine;
+    background-color: violet;
+}
+
+.tet-grid div {
+    width: 20px;
+    height: 20px;
+
+}
+
+.tet-actual {
+    background-color: greenyellow;
+}
+

@@ -1,0 +1,51 @@
+// autoTimer = setInterval(tetroTravel, 1000);
+
+function tetroTravel() {
+    tetroGone();
+    currentPos += w; //when + w (10), it moves down the grid by a line. 
+    tetroSpawn();
+    solidGround();
+};
+
+let sqArr = Array.from(document.querySelectorAll(".tet-grid div"));
+
+
+/////////////////////
+INDEX explained:
+width = 10
+[1, width+1, width*2+1, 2]
+
+after factoring in width:
+
+=[01, 11, 21, 02]
+
+taking those numbers as x and y values:
+
+=[(0, 1), (1, 1), (2, 1), (0, 2)
+]
+
+
+the x and y values indicate which box to colour.
+
+
+[0,0]  [0,1]  [0,2]
+
+[1,0]  [1,1]  [1,2]
+
+[2,0]  [2,1]  [2,2]
+/////////////////////
+
+function rotate() {
+        const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0);
+        const isAtRightEdge = current.some(index => (currentPosition + index) % width === (width - 1));
+        if (!(isAtLeftEdge | isAtRightEdge)) {
+            undraw();
+            currentRotation++;
+            if (currentRotation === current.length) {
+                //if currentRotation value is greater that 4 than reset same to 0
+                currentRotation = 0;
+            }
+            current = theTetrominoes[random][currentRotation];
+        }
+        draw()
+    }
