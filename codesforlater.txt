@@ -49,3 +49,61 @@ function rotate() {
         }
         draw()
     }
+
+
+function tetStopSign(potentialPos) {
+    return currentSpawn.some(index => sqArr[potentialPos + index].classList.contains("stop-here"));
+}
+
+
+  function addScore() {
+    for (let i = 0; i < 199; i +=width) {
+      const row = [i, i+1, i+2, i+3, i+4, i+5, i+6, i+7, i+8, i+9] //iteration plus width of grid (this iterates through every cell (in row) in grid)
+
+      if(row.every(index => squares[index].classList.contains('taken'))) {
+        score +=10
+        scoreDisplay.innerHTML = score 
+        row.forEach(index => {
+          squares[index].classList.remove('taken')
+          squares[index].classList.remove('tetromino')
+          squares[index].style.backgroundColor = ''          //check classname, adds/updates score, resets line/clears line
+        }) 
+        const squaresRemoved = squares.splice(i, width)    //insert on index i, the whole line
+        squares = squaresRemoved.concat(squares)           //adds line back into array
+        squares.forEach(cell => grid.appendChild(cell))    //appends back to main div
+      }
+    }
+  }
+
+  function addScore() {
+      for (let i = 0; i < 199; i+=w) {
+          const row = [i, i+1, i+2, i+3, i+4, i+5, i+6, i+7, i+8, i+9]
+
+          if (row.every(index => sqArr[index].classList.contains("stop-here))) {
+              scoreNum +=10
+              scoreVal.innerHTML = scoreNum
+              row.forEach(index => {
+                  sqArr[index].classList.remove("stop-here")
+                  sqArr[index].classList.remove("tet-actual")
+                  sqArr[index].style.backgroundColor = ""
+              })
+            const sqRemoved =sqArr.splice(i, w)
+            sqArr = sqRemoved.concat(sqArr)
+            sqArr.forEach(cell => grid.appendChild(cell))
+          }
+      }
+  }
+
+
+    function gameOver() {
+    if(currentSpawn.some(index => sqArr[currentPos + index].classList.contains("stop-here"))) {
+      scoreDisplay.innerHTML = 'ENDA'
+      clearInterval(timerId)
+    }
+  }
+  
+<div id="header"></div>  
+const img = document.createElement("img");
+img.src = "GBHF.gif"
+const src = document.getElementById("header");
+src.appendChild(img);
