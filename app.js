@@ -1,6 +1,7 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", () => {
-  //Creating + Simple styling the GRID
+ 
+//Creating + Simple styling the GRID
 
   const startGame = document.createElement("button");
   startGame.id = "start-button";
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   featCont2.append(scoreKeep);
 
   let scoreVal = document.createElement("span");
-  scoreVal.innerHTML = 0; //hardcoded placeholder for now 1000hrs 662022
+  scoreVal.innerHTML = 0; 
   scoreVal.id = "score";
   scoreKeep.append(scoreVal);
 
@@ -32,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const div1 = document.createElement("div");
   divPrime.append(div1);
-  // document.body.append(div1);
   div1.className = "tet-grid";
 
   for (let i = 0; i < 210; i++) {
@@ -44,8 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   //Creating TETROMINOS
-  //Starting with block and line tetrinos
-  //For each tetrino: 4 for its rotated states
 
   let sqArr = Array.from(document.querySelectorAll(".tet-grid div"));
   const w = 10; /*width of the grid, tetromino matrix is a 4x4 but only clearly reflectd in the I shape.
@@ -110,10 +108,10 @@ document.addEventListener("DOMContentLoaded", () => {
     teeTetro,
   ];
 
-  //Tetromino spawn
+  //Tetromino spawn + Movement + Key-binds
 
   let currentPos = 4; //Math.floor(Math.random() * w); //position, mid for now, tetromino shape split if random
-  let currentRot = Math.floor(Math.random() * 4); //rotation through 4 indices, currently hardcoded
+  let currentRot = Math.floor(Math.random() * 4); 
   let randoTetro = Math.floor(Math.random() * tetroMinos.length);
   let currentSpawn = tetroMinos[randoTetro][currentRot];
 
@@ -167,13 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // function slamDown() {
-  //   if (!stayAway(currentPos + (w * 18)))
-  //   tetroGone();
-  //   currentPos += (w * 18)
-  //   tetroSpawn();
-  // } //malfunctioning code, add as last stretch goal
-
   function moveUp() {
     if (!stayAway(currentPos - w)) {
       tetroGone();
@@ -214,9 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (e.key === "w") {
       moveUp();
-    } //else if (e.key === "s") {
-    // slamDown();
-    // }
+    }
   });
 
   let nextRandom = 0;
@@ -282,7 +271,6 @@ document.addEventListener("DOMContentLoaded", () => {
         row.forEach((index) => {
           sqArr[index].classList.remove("stop-here");
           sqArr[index].classList.remove("tet-actual");
-          // sqArr[index].style.backgroundColor = ""
         });
         const sqRemoved = sqArr.splice(i, w);
         sqArr = sqRemoved.concat(sqArr);
@@ -298,17 +286,5 @@ document.addEventListener("DOMContentLoaded", () => {
       clearInterval(timerId)
     } 
   };
-
-//Additional Styling
-
-// const img = document.createElement("img");
-// img.src = "GBHF.gif";
-// const src = document.getElementById("header");
-// src.appendChild(img);
-// div1.append(src);
-
-
-
-
 
 });
