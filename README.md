@@ -35,7 +35,7 @@ Manipulate the tetrominos by using the arrow keys on the keyboard to fit or stac
 
 Game ends when any stack reaches the top of the grid.
 
-![Failure](endgaame.png)
+![Failure](endgame.png)
 
 Interesting Bit:
 
