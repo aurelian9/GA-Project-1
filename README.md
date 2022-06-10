@@ -144,4 +144,4 @@ Finding out that stacking the shapes require exiting the travel function by cont
 ```
 
 Future considerations:
-Maybe come back to this after ReactJS, or even also afgter Unit3 and 4.
+Maybe come back to this after ReactJS, or even also after Unit3 and 4.
